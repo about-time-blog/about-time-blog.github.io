@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="https://about-ti.me/feed.xml" rel="self" type="application/atom+xml" /><link href="https://about-ti.me/" rel="alternate" type="text/html" /><updated>2019-09-21T13:43:22+02:00</updated><id>https://about-ti.me/feed.xml</id><title type="html">About Time</title><subtitle>A personal programming blog &lt;em&gt;mostly&lt;/em&gt; about time</subtitle><author><name>Mikkel&amp;nbsp;Riise&amp;nbsp;Lund</name></author><entry><title type="html">TIE Fighter Commenting /*/</title><link href="https://about-ti.me/articles/Tie-Fighter-Commenting/" rel="alternate" type="text/html" title="TIE Fighter Commenting /&lt;span&gt;*&lt;/span&gt;/" /><published>2019-09-02T00:00:00+02:00</published><updated>2019-09-02T00:00:00+02:00</updated><id>https://about-ti.me/articles/Tie-Fighter-Commenting</id><content type="html" xml:base="https://about-ti.me/articles/Tie-Fighter-Commenting/">&lt;h1 id=&quot;problem&quot;&gt;Problem&lt;a data-toggle=&quot;tooltip&quot; title=&quot;Direct link&quot; class=&quot;heading-link&quot; href=&quot;#problem&quot;&gt;&lt;i class=&quot;fas fa-link&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/h1&gt;
+
+&lt;p&gt;Say you had written one piece of code and wanted to try an alternative version.
+Normally you would probably comment out all your initial code, and then write the new code below like this:&lt;/p&gt;
+
+&lt;div class=&quot;language-csharp highlighter-rouge&quot;&gt;
+  &lt;div class=&quot;highlight&quot;&gt;
+    &lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;c1&quot;&gt;//FirstVersionOfCode();&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//SpansMultipleLines();&lt;/span&gt;
+
+&lt;span class=&quot;nf&quot;&gt;SecondVersionOfCode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;nf&quot;&gt;AlsoSpansMultipleLines&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;nf&quot;&gt;ItsEvenLongerThanTheFirstVersion&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Wanting to run the old code again, you comment out the new code and remove the comments from the first version:&lt;/p&gt;
+
+&lt;div class=&quot;language-csharp highlighter-rouge&quot;&gt;
+  &lt;div class=&quot;highlight&quot;&gt;
+    &lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;nf&quot;&gt;FirstVersionOfCode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;nf&quot;&gt;SpansMultipleLines&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;//SecondVersionOfCode();&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//AlsoSpansMultipleLines();&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//ItsEvenLongerThanTheFirstVersion();&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;This is all fine to begin with.
+But at some point it gets frustrating to go back and forth between adding and removing comments on multiple lines,
+each time you want to switch to the other piece of code.&lt;/p&gt;
+
+&lt;p&gt;What if I told you that there is an easy way to toggle between the two pieces of code, &lt;strong&gt;simply by adding or removing a &lt;em&gt;single&lt;/em&gt; character each time?&lt;/strong&gt;
+Yes, a single character, regardless of how long your code is!&lt;/p&gt;
+
+&lt;h1 id=&quot;solution&quot;&gt;Solution&lt;a data-toggle=&quot;tooltip&quot; title=&quot;Direct link&quot; class=&quot;heading-link&quot; href=&quot;#solution&quot;&gt;&lt;i class=&quot;fas fa-link&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/h1&gt;
+
+&lt;p&gt;Let’s consider the example from above, but with some new comments instead:&lt;/p&gt;
+
+&lt;div class=&quot;language-csharp highlighter-rouge&quot;&gt;
+  &lt;div class=&quot;highlight&quot;&gt;
+    &lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;c1&quot;&gt;//*&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// Currently active code&lt;/span&gt;
+&lt;span class=&quot;nf&quot;&gt;FirstVersionOfCode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;nf&quot;&gt;SpansMultipleLines&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+
+&lt;span class=&quot;cm&quot;&gt;/*/
+
+// Currently inactive code
+SecondVersionOfCode();
+AlsoSpansMultipleLines();
+ItsEvenLongerThanTheFirstVersion();
+
+//*/&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;To toggle which version of the code is active, we simply remove the first slash &lt;code class=&quot;c highlighter-rouge&quot;&gt;/&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-csharp highlighter-rouge&quot;&gt;
+  &lt;div class=&quot;highlight&quot;&gt;
+    &lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;cm&quot;&gt;/*  &amp;lt;- This is where the magic happens
+
+// This code is now inactive
+FirstVersionOfCode();
+SpansMultipleLines();
+
+/*/&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// This code is now active&lt;/span&gt;
+&lt;span class=&quot;nf&quot;&gt;SecondVersionOfCode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;nf&quot;&gt;AlsoSpansMultipleLines&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;nf&quot;&gt;ItsEvenLongerThanTheFirstVersion&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;//*/&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;To toggle back, you simply add the slash &lt;code class=&quot;c highlighter-rouge&quot;&gt;/&lt;/code&gt; back again.&lt;/p&gt;
+
+&lt;h1 id=&quot;explanation&quot;&gt;Explanation&lt;a data-toggle=&quot;tooltip&quot; title=&quot;Direct link&quot; class=&quot;heading-link&quot; href=&quot;#explanation&quot;&gt;&lt;i class=&quot;fas fa-link&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/h1&gt;
+
+&lt;p&gt;Okay, so what is happening here?
+We are actually exploiting how single- and multi-line comments are interpreted.
+Notice how we have two nested multi-line comments;
+the &lt;a href=&quot;https://www.starwars.com/databank/tie-fighter&quot; target=&quot;_blank&quot;&gt;TIE fighter&lt;/a&gt; comment &lt;code class=&quot;c highlighter-rouge&quot;&gt;/*/&lt;/code&gt; on line 7 acts as the end of the first multi-line comment,
+and the start of the second multi-line comment.&lt;/p&gt;
+
+&lt;p&gt;In the last example, the comment spans from the top to the middle, but in order to avoid a dangling end comment &lt;code class=&quot;c highlighter-rouge&quot;&gt;*/&lt;/code&gt;,
+the last line is prefixed with double slashes &lt;code class=&quot;c highlighter-rouge&quot;&gt;//&lt;/code&gt;, turning that line into a single-line comment.&lt;/p&gt;
+
+&lt;p&gt;When we add the slash &lt;code class=&quot;c highlighter-rouge&quot;&gt;/&lt;/code&gt; back into the first line, the start tag of the multi-line code turns into a single-line comment,
+causing the the TIE fighter comment to act as the start comment.&lt;/p&gt;
+
+&lt;!-- # Comments --&gt;
+
+&lt;p&gt;This trick works with most languages that uses double-slash &lt;code class=&quot;c highlighter-rouge&quot;&gt;//&lt;/code&gt; for single-line comments and &lt;code class=&quot;c highlighter-rouge&quot;&gt;/**/&lt;/code&gt; for multi-line comments.&lt;/p&gt;
+
+&lt;p&gt;It even works if your style guides require spaces after double slashes &lt;code class=&quot;c highlighter-rouge&quot;&gt;//&lt;/code&gt;.
+Simply add and remove the slash and the extra space in the first comment when toggling.&lt;/p&gt;</content><author><name>Mikkel&amp;nbsp;Riise&amp;nbsp;Lund</name></author><category term="Tricks" /><summary type="html">Ever had to quickly toggle between two pieces of code to test their different behavior? Try using TIE Fighter Commenting to make it easy!</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://about-ti.me/tie-fighter-commenting.png" /></entry></feed>

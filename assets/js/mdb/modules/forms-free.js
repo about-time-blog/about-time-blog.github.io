@@ -1,1 +1,173 @@
-"use strict";var _this=void 0;!function(a){function t(){var t,e=a(".md-textarea-auto");e.length&&(t=window.attachEvent?function(a,t,e){a.attachEvent("on".concat(t),e)}:function(a,t,e){a.addEventListener(t,e,!1)},e.each(function(){function a(){i.style.height="auto",i.style.height="".concat(i.scrollHeight,"px")}function e(){window.setTimeout(a,0)}var i=this;t(i,"change",a),t(i,"cut",e),t(i,"paste",e),t(i,"drop",e),t(i,"keydown",e),a()}))}var e="".concat(["text","password","email","url","tel","number","search","search-md"].map(function(a){return"input[type=".concat(a,"]")}).join(", "),", textarea"),i=".materialize-textarea",n=function(a){var t=a.siblings("label, i"),e=a.val().length,i=a.attr("placeholder");t["".concat(e||i?"add":"remove","Class")]("active")},l=function(a){if(a.hasClass("validate")){var t=a.val(),e=!t.length,i=!a[0].validity.badInput;if(e&&i)a.removeClass("valid").removeClass("invalid");else{var n=a.is(":valid"),l=Number(a.attr("length"))||0;n&&(!l||l>t.length)?a.removeClass("invalid").addClass("valid"):a.removeClass("valid").addClass("invalid")}}},s=function(){var t=a(_this);if(t.val().length){var e=a(".hiddendiv"),i=t.css("font-family"),n=t.css("font-size");n&&e.css("font-size",n),i&&e.css("font-family",i),"off"===t.attr("wrap")&&e.css("overflow-wrap","normal").css("white-space","pre"),e.text("".concat(t.val(),"\n"));var l=e.html().replace(/\n/g,"<br>");e.html(l),e.css("width",t.is(":visible")?t.width():a(window).width()/2),t.css("height",e.height())}};a(e).each(function(t,e){var i=a(e),l=i.siblings("label, i");n(i),e.validity.badInput&&l.addClass("active")}),a(document).on("focus",e,function(t){a(t.target).siblings("label, i").addClass("active")}),a(document).on("blur",e,function(t){var e=a(t.target),i=!e.val(),n=!t.target.validity.badInput,s=e.attr("placeholder")===undefined;i&&n&&s&&e.siblings("label, i").removeClass("active"),l(e)}),a(document).on("change",e,function(t){var e=a(t.target);n(e),l(e)}),a("input[autofocus]").siblings("label, i").addClass("active"),a(document).on("reset",function(t){var i=a(t.target);i.is("form")&&(i.find(e).removeClass("valid").removeClass("invalid").each(function(t,e){var i=a(e),n=!i.val(),l=!i.attr("placeholder");n&&l&&i.siblings("label, i").removeClass("active")}),i.find("select.initialized").each(function(t,e){var i=a(e),n=i.siblings("input.select-dropdown"),l=i.children("[selected]").val();i.val(l),n.val(l)}))}),t();var o=a("body");if(!a(".hiddendiv").first().length){var c=a('<div class="hiddendiv common"></div>');o.append(c)}a(i).each(s),o.on("keyup keydown",i,s)}(jQuery);
+"use strict";
+
+var _this = void 0;
+
+(function ($) {
+  var inputSelector = "".concat(['text', 'password', 'email', 'url', 'tel', 'number', 'search', 'search-md'].map(function (selector) {
+    return "input[type=".concat(selector, "]");
+  }).join(', '), ", textarea");
+  var textAreaSelector = '.materialize-textarea';
+
+  var updateTextFields = function updateTextFields($input) {
+    var $labelAndIcon = $input.siblings('label, i');
+    var hasValue = $input.val().length;
+    var hasPlaceholder = $input.attr('placeholder');
+    var addOrRemove = "".concat(hasValue || hasPlaceholder ? 'add' : 'remove', "Class");
+    $labelAndIcon[addOrRemove]('active');
+  };
+
+  var validateField = function validateField($input) {
+    if ($input.hasClass('validate')) {
+      var value = $input.val();
+      var noValue = !value.length;
+      var isValid = !$input[0].validity.badInput;
+
+      if (noValue && isValid) {
+        $input.removeClass('valid').removeClass('invalid');
+      } else {
+        var valid = $input.is(':valid');
+        var length = Number($input.attr('length')) || 0;
+
+        if (valid && (!length || length > value.length)) {
+          $input.removeClass('invalid').addClass('valid');
+        } else {
+          $input.removeClass('valid').addClass('invalid');
+        }
+      }
+    }
+  };
+
+  var textAreaAutoResize = function textAreaAutoResize() {
+    var $textarea = $(_this);
+
+    if ($textarea.val().length) {
+      var $hiddenDiv = $('.hiddendiv');
+      var fontFamily = $textarea.css('font-family');
+      var fontSize = $textarea.css('font-size');
+
+      if (fontSize) {
+        $hiddenDiv.css('font-size', fontSize);
+      }
+
+      if (fontFamily) {
+        $hiddenDiv.css('font-family', fontFamily);
+      }
+
+      if ($textarea.attr('wrap') === 'off') {
+        $hiddenDiv.css('overflow-wrap', 'normal').css('white-space', 'pre');
+      }
+
+      $hiddenDiv.text("".concat($textarea.val(), "\n"));
+      var content = $hiddenDiv.html().replace(/\n/g, '<br>');
+      $hiddenDiv.html(content); // When textarea is hidden, width goes crazy.
+      // Approximate with half of window size
+
+      $hiddenDiv.css('width', $textarea.is(':visible') ? $textarea.width() : $(window).width() / 2);
+      $textarea.css('height', $hiddenDiv.height());
+    }
+  };
+
+  $(inputSelector).each(function (index, input) {
+    var $this = $(input);
+    var $labelAndIcon = $this.siblings('label, i');
+    updateTextFields($this);
+    var isValid = input.validity.badInput;
+
+    if (isValid) {
+      $labelAndIcon.addClass('active');
+    }
+  });
+  $(document).on('focus', inputSelector, function (e) {
+    $(e.target).siblings('label, i').addClass('active');
+  });
+  $(document).on('blur', inputSelector, function (e) {
+    var $this = $(e.target);
+    var noValue = !$this.val();
+    var invalid = !e.target.validity.badInput;
+    var noPlaceholder = $this.attr('placeholder') === undefined;
+
+    if (noValue && invalid && noPlaceholder) {
+      $this.siblings('label, i').removeClass('active');
+    }
+
+    validateField($this);
+  });
+  $(document).on('change', inputSelector, function (e) {
+    var $this = $(e.target);
+    updateTextFields($this);
+    validateField($this);
+  });
+  $('input[autofocus]').siblings('label, i').addClass('active');
+  $(document).on('reset', function (e) {
+    var $formReset = $(e.target);
+
+    if ($formReset.is('form')) {
+      var $formInputs = $formReset.find(inputSelector);
+      $formInputs.removeClass('valid').removeClass('invalid').each(function (index, input) {
+        var $this = $(input);
+        var noDefaultValue = !$this.val();
+        var noPlaceholder = !$this.attr('placeholder');
+
+        if (noDefaultValue && noPlaceholder) {
+          $this.siblings('label, i').removeClass('active');
+        }
+      });
+      $formReset.find('select.initialized').each(function (index, select) {
+        var $select = $(select);
+        var $visibleInput = $select.siblings('input.select-dropdown');
+        var defaultValue = $select.children('[selected]').val();
+        $select.val(defaultValue);
+        $visibleInput.val(defaultValue);
+      });
+    }
+  });
+
+  function init() {
+    var $text = $('.md-textarea-auto');
+
+    if ($text.length) {
+      var observe;
+
+      if (window.attachEvent) {
+        observe = function observe(element, event, handler) {
+          element.attachEvent("on".concat(event), handler);
+        };
+      } else {
+        observe = function observe(element, event, handler) {
+          element.addEventListener(event, handler, false);
+        };
+      }
+
+      $text.each(function () {
+        var self = this;
+
+        function resize() {
+          self.style.height = 'auto';
+          self.style.height = "".concat(self.scrollHeight, "px");
+        }
+
+        function delayedResize() {
+          window.setTimeout(resize, 0);
+        }
+
+        observe(self, 'change', resize);
+        observe(self, 'cut', delayedResize);
+        observe(self, 'paste', delayedResize);
+        observe(self, 'drop', delayedResize);
+        observe(self, 'keydown', delayedResize);
+        resize();
+      });
+    }
+  }
+
+  init();
+  var $body = $('body');
+
+  if (!$('.hiddendiv').first().length) {
+    var $hiddenDiv = $('<div class="hiddendiv common"></div>');
+    $body.append($hiddenDiv);
+  }
+
+  $(textAreaSelector).each(textAreaAutoResize);
+  $body.on('keyup keydown', textAreaSelector, textAreaAutoResize);
+})(jQuery);

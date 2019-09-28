@@ -49,8 +49,29 @@
 <meta name="application-name" content="About Time">
 <meta name="msapplication-TileColor" content="">
 <meta name="theme-color" content=""><link type="application/atom+xml" rel="alternate" href="https://about-ti.me/feed.xml" title="About Time" /><!-- Custom -->
-    <link rel="stylesheet" type="text/css" media="all" href="/assets/css/style.css" >
-    <link rel="stylesheet" type="text/css" media="print" href="/assets/css/print.css" >
+    <link rel="stylesheet" type="text/css" media="all" href="/assets/css/critical.css" >
+
+    <!-- Non critical CSS -->
+    <script async>
+        var styleLink = document.createElement("link");
+        styleLink.setAttribute("rel", "stylesheet");
+        styleLink.setAttribute("type", "text/css");
+        styleLink.setAttribute("media", "all");
+        styleLink.setAttribute("href", "/assets/css/style.css");
+        document.documentElement.appendChild(styleLink);
+
+        var printLink = document.createElement("link");
+        printLink.setAttribute("rel", "stylesheet");
+        printLink.setAttribute("type", "text/css");
+        printLink.setAttribute("media", "print");
+        printLink.setAttribute("href", "/assets/css/print.css");
+        document.documentElement.appendChild(printLink);
+    </script>
+    <!-- Fallback for disabled JS -->
+    <noscript>
+        <link rel="stylesheet" type="text/css" media="all" href="/assets/css/style.css" >
+        <link rel="stylesheet" type="text/css" media="print" href="/assets/css/print.css" >
+    </noscript>
 </head>
 
   <body id="body" data-spy="scroll" data-target="#table-of-contents" data-offset="1" class="layout-post ">

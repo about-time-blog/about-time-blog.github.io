@@ -379,9 +379,9 @@ Simply add and remove the slash and the extra space in the first comment when to
     
 
     
-</nav><div class="post-comments wide d-print-none">
+</nav><div class="post-comments wide d-print-none text-center">
   <div id="disqus_thread">
-      <a href="#" class="comments-holder" onclick="loadDisqus();return false;">Show/Post Comments</a>
+      <button type="button" class="btn btn-theme btn-lg theme-gradient btn-outline-white" onclick="loadDisqus();return false;">Show comments</button>
   </div>
 </div>
 </div>
@@ -458,7 +458,33 @@ Simply add and remove the slash and the extra space in the first comment when to
 <script async="" type="text/javascript" integrity="sha256-bNQgEY6tqIAeW1PefoOv9woJ2u9NMu1MERH65T/UuFY=" crossorigin="anonymous" src="/assets/js/outline-6cd420118eada8801e5b53de7e83aff70a09daef4d32ed4c1111fae53fd4b856.js"></script>
 
 
-<script async="" type="text/javascript" integrity="sha256-rlx2c3cXrLPaNNzkQtK0rFTQDOO98yychehY9SVmic4=" crossorigin="anonymous" src="/assets/js/disqus-ae5c76737717acb3da34dce442d2b4ac54d00ce3bdf32c9c85e858f5256689ce.js"></script>
+<script type="text/javascript">
+
+var disqus_config = function() {
+    this.page.url = 'https://about-ti.me/articles/Tie-Fighter-Commenting/';
+    this.page.identifier = 'https://about-ti.me/articles/Tie-Fighter-Commenting/';
+};
+
+var is_disqus_loaded = false;
+
+var loadDisqus = function() {
+    if (is_disqus_loaded) {
+        return;
+    }
+
+    is_disqus_loaded = true;
+
+    var d = document;
+    var dsq = d.createElement('script');
+    dsq.setAttribute('type', 'text/javascript');
+    dsq.setAttribute('async', true);
+    dsq.setAttribute('src', '//about-time.disqus.com/embed.js');
+    dsq.setAttribute('data-timestamp', +new Date());
+
+    (d.head || d.body).appendChild(dsq);
+};
+
+</script>
 
 
   </body>

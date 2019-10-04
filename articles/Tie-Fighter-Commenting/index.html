@@ -33,7 +33,7 @@
 <meta name="twitter:site" content="@lundmikkel" />
 <meta name="twitter:creator" content="@Mikkel Riise Lund" />
 <script type="application/ld+json">
-{"description":"Ever had to quickly toggle between two pieces of code to test their different behavior? Try using TIE Fighter Commenting to make it easy!","headline":"TIE Fighter Commenting /*/","dateModified":"2019-09-21T00:00:00+02:00","datePublished":"2019-09-21T00:00:00+02:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://about-ti.me/articles/Tie-Fighter-Commenting/"},"url":"https://about-ti.me/articles/Tie-Fighter-Commenting/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://about-ti.me/assets/images/logo.png"},"name":"Mikkel Riise Lund"},"image":"https://about-ti.me/images/tie-fighter-commenting.png","author":{"@type":"Person","name":"Mikkel Riise Lund"},"@context":"https://schema.org"}</script>
+{"headline":"TIE Fighter Commenting /*/","dateModified":"2019-09-21T00:00:00+02:00","description":"Ever had to quickly toggle between two pieces of code to test their different behavior? Try using TIE Fighter Commenting to make it easy!","datePublished":"2019-09-21T00:00:00+02:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://about-ti.me/articles/Tie-Fighter-Commenting/"},"url":"https://about-ti.me/articles/Tie-Fighter-Commenting/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://about-ti.me/assets/images/logo.png"},"name":"Mikkel Riise Lund"},"image":"https://about-ti.me/images/tie-fighter-commenting.png","author":{"@type":"Person","name":"Mikkel Riise Lund"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <!--[if lt IE 9]>
         <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -118,7 +118,7 @@
         <article class="post container tie-fighter">
 
     <header id="top" class="post-header">
-        <a href=".">
+        <a href="./#">
             <h1 class="post-title">
                 TIE Fighter Commenting /<span>*</span>/
             </h1>
@@ -375,13 +375,30 @@ Simply add and remove the slash and the extra space in the first comment when to
     </div>
 
     <div>
-<nav class="post-navigation my-5 d-print-none" role="navigation">
+        
+<hr class="mt-5">
+<section class="text-center text-sm-left my-5">
+    <div class="row">
+        <div class="col-12 col-sm-3 col-lg-2 mb-sm-0 mb-3">
+            <img class="img-fluid rounded-circle" alt="Mikkel Riise Lund" integrity="sha256-vKHQF0RUtXYjRg6mwxm4w/IwMz+GIk98Ph7L7Yg3AUI=" crossorigin="anonymous" src="/assets/64fb65-77f6f0359fc0e1a8afc062998d654b9064218f66786dfc714be7dcf695975fb4.jpg">
+        </div>
+        <div class="col-12 col-sm-9 col-lg-10">
+            <p class="author-name">Mikkel Riise Lund</p>
+            <p class="dark-grey-text article">
+                Mikkel is a software developer based in Copenhagen, Denmark with a passion for time and intervals.
+                He focuses mainly on backends in .NET, where he loves to work with stuff like Noda Time and Domain-Driven Development.
+                Mikkel is the main author of this blog.
+                <a href="/about">Read more about him here.</a>
+            </p>
+        </div>
+    </div>
+</section><nav class="post-navigation my-5 d-print-none" role="navigation">
     
 
     
 </nav><div class="post-comments wide d-print-none text-center">
   <div id="disqus_thread">
-      <button type="button" class="btn btn-theme btn-lg theme-gradient btn-outline-white" onclick="loadDisqus();return false;">Show comments</button>
+      <button type="button" class="btn btn-theme btn-lg theme-gradient btn-outline-white" onclick="loadDisqus();return false;">Show post comments</button>
   </div>
 </div>
 </div>
@@ -465,6 +482,7 @@ var disqus_config = function() {
     this.page.identifier = 'https://about-ti.me/articles/Tie-Fighter-Commenting/';
 };
 
+// https://techbrij.com/load-disqus-comments-click-wordpress
 var is_disqus_loaded = false;
 
 var loadDisqus = function() {
